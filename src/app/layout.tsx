@@ -40,9 +40,6 @@ export const metadata: Metadata = {
     "RJ Invisible Grills Pune",
   ],
   metadataBase: new URL("https://www.rjinvisiblegrills.com"),
-  verification: {
-    google: "fYQkLBeMnZJOHutLePpTNA_y7Z98S0mCOZuzBiJdrpE",
-  },
   alternates: {
     canonical: "/",
   },
@@ -148,20 +145,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-
-        {/* Google Analytics 4 (GA4) - Lazy-loaded strategy */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZCYPR2V24D"
-          strategy="lazyOnload"
-        />
-        <Script id="ga-init" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-ZCYPR2V24D');
-          `}
-        </Script>
 
         {/* Google Tag Manager (GTM) placeholder */}
         <Script id="gtm" strategy="lazyOnload">
