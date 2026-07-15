@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import HeroCarousel from "@/components/sections/HeroCarousel";
 import Stats from "@/components/sections/Stats";
 import ServiceCategories from "@/components/sections/ServiceCategories";
+import LazyScroll from "@/components/shared/LazyScroll";
 
 const FeaturedServices = dynamic(() => import("@/components/sections/FeaturedServices"));
 const WhyChooseUs = dynamic(() => import("@/components/sections/WhyChooseUs"));
@@ -40,15 +41,40 @@ export default function Home() {
       <Stats />
       <ServiceCategories />
       <FeaturedServices />
-      <WhyChooseUs />
-      <InstallationProcess />
-      <Materials />
-      <BeforeAfter />
-      <Team />
-      <ServiceAreas />
-      <CustomerReviews />
+      
+      <LazyScroll minHeight="300px">
+        <WhyChooseUs />
+      </LazyScroll>
+      
+      <LazyScroll minHeight="400px">
+        <InstallationProcess />
+      </LazyScroll>
+      
+      <LazyScroll minHeight="400px">
+        <Materials />
+      </LazyScroll>
+      
+      <LazyScroll minHeight="500px">
+        <BeforeAfter />
+      </LazyScroll>
+      
+      <LazyScroll minHeight="400px">
+        <Team />
+      </LazyScroll>
+      
+      <LazyScroll minHeight="300px">
+        <ServiceAreas />
+      </LazyScroll>
+      
+      <LazyScroll minHeight="400px">
+        <CustomerReviews />
+      </LazyScroll>
+      
       <FAQAccordion />
-      <ContactForm />
+      
+      <LazyScroll minHeight="500px">
+        <ContactForm />
+      </LazyScroll>
     </>
   );
 }

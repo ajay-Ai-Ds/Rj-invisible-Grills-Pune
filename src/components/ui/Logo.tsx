@@ -59,7 +59,7 @@ export default function Logo({ className = "", iconOnly = false, light = false }
           </div>
           <span
             className={`text-[9px] font-bold uppercase tracking-[0.25em] transition-colors duration-200 ${
-              light ? "text-slate-400" : "text-slate-500"
+              light ? "text-slate-300" : "text-slate-600"
             }`}
           >
             Premium Invisible Grills &amp; Nets

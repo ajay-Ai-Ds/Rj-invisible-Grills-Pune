@@ -66,8 +66,13 @@ export default function HeroCarousel() {
   const [isPaused, setIsPaused] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const transitionLockRef = useRef(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const minSwipeDistance = 50;
 
@@ -163,44 +168,67 @@ export default function HeroCarousel() {
       {/* Infinite slide strip */}
       <div
         className="flex h-full"
-        style={{
-          width: `${extendedSlides.length * 100}%`,
-          transform: `translateX(${translateX / extendedSlides.length}%)`,
-          transition: isTransitioning
-            ? `transform ${TRANSITION_DURATION}ms cubic-bezier(0.77, 0, 0.175, 1)`
-            : "none",
-          willChange: "transform",
-        }}
+        style={
+          isMounted
+            ? {
+                width: `${extendedSlides.length * 100}%`,
+                transform: `translateX(${translateX / extendedSlides.length}%)`,
+                transition: isTransitioning
+                  ? `transform ${TRANSITION_DURATION}ms cubic-bezier(0.77, 0, 0.175, 1)`
+                  : "none",
+                willChange: "transform",
+              }
+            : {
+                width: "100%",
+                transform: "none",
+              }
+        }
         onTransitionEnd={handleTransitionEnd}
       >
-        {extendedSlides.map((slide, idx) => (
-          <div
-            key={`${slide.id}-${idx}`}
-            className="relative h-full flex-shrink-0"
-            style={{ width: `${100 / extendedSlides.length}%` }}
-          >
-            {/* Ken Burns effect */}
+        {isMounted ? (
+          extendedSlides.map((slide, idx) => (
             <div
-              className="relative w-full h-full overflow-hidden"
-              style={{
-                animation:
-                  idx === activeIndex
-                    ? `kenBurns ${AUTOPLAY_INTERVAL + TRANSITION_DURATION}ms ease-out forwards`
-                    : "none",
-              }}
+              key={`${slide.id}-${idx}`}
+              className="relative h-full flex-shrink-0"
+              style={{ width: `${100 / extendedSlides.length}%` }}
             >
+              {/* Ken Burns effect */}
+              <div
+                className="relative w-full h-full overflow-hidden"
+                style={{
+                  animation:
+                    idx === activeIndex
+                      ? `kenBurns ${AUTOPLAY_INTERVAL + TRANSITION_DURATION}ms ease-out forwards`
+                      : "none",
+                }}
+              >
+                <Image
+                  src={slide.image}
+                  alt={slide.alt}
+                  fill
+                  priority={idx === 1}
+                  sizes="100vw"
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-black/60" />
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="relative w-full h-full flex-shrink-0">
+            <div className="relative w-full h-full overflow-hidden">
               <Image
-                src={slide.image}
-                alt={slide.alt}
+                src={slides[0].image}
+                alt={slides[0].alt}
                 fill
-                priority={idx === 1}
+                priority
                 sizes="100vw"
                 className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-black/60" />
             </div>
           </div>
-        ))}
+        )}
       </div>
 
       {/* Text Content Overlay — always shows real slide content */}
@@ -288,7 +316,7 @@ export default function HeroCarousel() {
           <button
             key={slide.id}
             onClick={() => goToSlide(index)}
-            className={`h-2.5 rounded-full transition-all duration-300 ${
+            className={`h-2.5 rounded-full transition-all duration-300 relative before:content-[''] before:absolute before:inset-y-[-10px] before:inset-x-[-8px] cursor-pointer ${
               index === realIndex ? "w-8 bg-accent-orange" : "w-2.5 bg-white/40 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${index + 1}`}

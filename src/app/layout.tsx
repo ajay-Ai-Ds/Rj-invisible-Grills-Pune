@@ -149,12 +149,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
 
-        {/* Google Analytics 4 (GA4) - Non-blocking load strategy */}
+        {/* Google Analytics 4 (GA4) - Lazy-loaded strategy */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-ZCYPR2V24D"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga-init" strategy="afterInteractive">
+        <Script id="ga-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

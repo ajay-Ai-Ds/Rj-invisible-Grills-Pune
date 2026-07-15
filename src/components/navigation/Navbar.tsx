@@ -115,7 +115,6 @@ export default function Navbar() {
               <a
                 href="tel:+918019113644"
                 className="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-accent-orange transition-colors duration-200 border border-slate-300 rounded-full px-4 py-2"
-                aria-label="Call RJ Invisible Grills"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>+91 80191 13644</span>

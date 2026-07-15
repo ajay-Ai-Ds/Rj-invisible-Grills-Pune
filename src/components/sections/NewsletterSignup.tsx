@@ -64,7 +64,7 @@ export default function NewsletterSignup() {
           <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
             Subscribe to our Safety & Maintenance Tips
           </h3>
-          <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
+          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-md">
             Get monthly guides on childproofing apartments, maintaining high-tension sports nets, and keeping stainless steel invisible grills clean from RJ Invisible Grills.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function NewsletterSignup() {
               <CheckCircle2 className="w-10 h-10" />
               <div>
                 <span className="text-sm font-bold text-white block">Subscribed Successfully!</span>
-                <span className="text-[10px] text-slate-400 block mt-1">Thank you for joining.</span>
+                <span className="text-[10px] text-slate-300 block mt-1">Thank you for joining.</span>
               </div>
             </motion.div>
           ) : (
@@ -94,7 +94,7 @@ export default function NewsletterSignup() {
 
               {/* Name */}
               <div className="flex flex-col gap-1 text-left">
-                <label htmlFor="newsletter-name" className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                <label htmlFor="newsletter-name" className="text-[10px] font-bold text-slate-200 uppercase tracking-wider">
                   First Name
                 </label>
                 <input
@@ -115,7 +115,7 @@ export default function NewsletterSignup() {
 
               {/* Email */}
               <div className="flex flex-col gap-1 text-left">
-                <label htmlFor="newsletter-email" className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                <label htmlFor="newsletter-email" className="text-[10px] font-bold text-slate-200 uppercase tracking-wider">
                   Email Address
                 </label>
                 <input
