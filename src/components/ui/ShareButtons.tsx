@@ -14,6 +14,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShareUrl(`${window.location.origin}/blog/${slug}`);
     }
   }, [slug]);

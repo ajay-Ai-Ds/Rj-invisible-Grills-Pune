@@ -105,7 +105,7 @@ export default function WhyChooseUs() {
                 Setting New Benchmarks in Household Safety
               </h2>
               <p className="text-slate-500 text-sm leading-relaxed">
-                We believe that safety shouldn&apos;t feel like a cage. Our team designs and installs high-strength, premium-material invisible steel grills and sports netting that blend seamlessly into Pune's high-rise architecture.
+                We believe that safety shouldn&apos;t feel like a cage. Our team designs and installs high-strength, premium-material invisible steel grills and sports netting that blend seamlessly into Pune&apos;s high-rise architecture.
               </p>
             </div>
 

@@ -65,7 +65,7 @@ export default function Materials() {
             Built to Protect: Premium Industrial Materials
           </h2>
           <p className="text-slate-500 text-sm leading-relaxed">
-            We source only certified, heavy-duty raw materials built to withstand Pune's dry heat, dust, and heavy monsoon rains.
+            We source only certified, heavy-duty raw materials built to withstand Pune&apos;s dry heat, dust, and heavy monsoon rains.
           </p>
         </div>
 

@@ -37,17 +37,17 @@ export default function LightboxGallery({ images, serviceName }: LightboxGallery
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        closeLightbox();
+        setPhotoIndex(null);
       } else if (e.key === "ArrowRight") {
-        nextPhoto();
+        setPhotoIndex((prev) => (prev !== null ? (prev + 1) % images.length : 0));
       } else if (e.key === "ArrowLeft") {
-        prevPhoto();
+        setPhotoIndex((prev) => (prev !== null ? (prev - 1 + images.length) % images.length : 0));
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [photoIndex]);
+  }, [photoIndex, images.length]);
 
   return (
     <>

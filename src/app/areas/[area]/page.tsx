@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Home, MapPin, Shield, CheckCircle2, Phone, MessageSquare, ArrowRight } from "lucide-react";
+import { Home, Shield, CheckCircle2, Phone, MessageSquare, ArrowRight } from "lucide-react";
 import { areasData } from "@/utils/areasData";
 import { servicesData } from "@/utils/servicesData";
 import { generateBreadcrumbSchema, generateLocalBusinessSchema, generateFAQPageSchema } from "@/utils/schema";

@@ -54,8 +54,8 @@ export async function generateMetadata({ params }: PageProps) {
 
 export async function generateStaticParams() {
   const posts = Object.values(blogData);
-  return posts.map((post: any) => ({
-    slug: post.slug.current || post.slug,
+  return posts.map((post) => ({
+    slug: post.slug,
   }));
 }
 
@@ -181,7 +181,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                   <span>Table of Contents</span>
                 </h2>
                 <ul className="space-y-2 text-xs sm:text-sm text-primary-700 font-bold">
-                  {post.contentBlocks.map((block: any, i: number) => {
+                  {post.contentBlocks.map((block, i) => {
                     const anchorId = `section-${i}`;
                     return (
                       <li key={i} className="hover:text-accent-orange transition-colors">
@@ -204,7 +204,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
               {/* Dynamic Content blocks */}
               <div className="flex flex-col gap-8">
-                {post.contentBlocks.map((block: any, idx: number) => {
+                {post.contentBlocks.map((block, idx) => {
                   const anchorId = `section-${idx}`;
                   return (
                     <div key={idx} id={anchorId} className="flex flex-col gap-3 scroll-mt-24">
@@ -230,7 +230,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 <span>Frequently Asked Questions</span>
               </h3>
               <div className="space-y-5">
-                {post.faqs.map((faq: any, idx: number) => (
+                {post.faqs.map((faq, idx) => (
                   <div key={idx} className="pb-4 border-b border-slate-50 last:border-0 last:pb-0">
                     <h4 className="text-sm font-bold text-slate-800 mb-1.5">{faq.question}</h4>
                     <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">{faq.answer}</p>

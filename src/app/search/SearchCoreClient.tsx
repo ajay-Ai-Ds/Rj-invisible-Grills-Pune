@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Search, MapPin, Briefcase, FileText, Wrench, HelpCircle, ArrowRight } from "lucide-react";
@@ -21,14 +21,12 @@ export default function SearchCoreClient() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [query, setQuery] = useState(searchParams.get("q") || "");
-  const [results, setResults] = useState<SearchMatch[]>([]);
-
   const activeQuery = searchParams.get("q") || "";
 
-  useEffect(() => {
+  // Synchronously compute search results directly during rendering
+  const results: SearchMatch[] = (() => {
     if (!activeQuery.trim()) {
-      setResults([]);
-      return;
+      return [];
     }
 
     const term = activeQuery.toLowerCase().trim();
@@ -98,8 +96,8 @@ export default function SearchCoreClient() {
       }
     });
 
-    setResults(matches);
-  }, [activeQuery]);
+    return matches;
+  })();
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();

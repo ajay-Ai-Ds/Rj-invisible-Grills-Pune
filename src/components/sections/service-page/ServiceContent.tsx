@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Check, ShieldAlert, Settings, Wrench, ShieldCheck, Heart } from "lucide-react";
+import { Check, ShieldAlert, Settings, ShieldCheck } from "lucide-react";
 import { SpecItem } from "@/utils/servicesData";
 
 interface AboutProps {
@@ -11,7 +11,7 @@ interface AboutProps {
   benefits: string[];
 }
 
-export function ServiceAbout({ name, longDescription, benefits }: AboutProps) {
+export function ServiceAbout({ longDescription, benefits }: AboutProps) {
   return (
     <section className="bg-white py-20 scroll-mt-12" id="about-service">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
