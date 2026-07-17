@@ -67,6 +67,9 @@ export const metadata: Metadata = {
       "Premium invisible steel wire grills and sports nets in Pune, Maharashtra.",
     images: [imageAssets.ogImage.url],
   },
+  verification: {
+    google: "E1k7t7E1273P0NdgTvhF2ORBlTPhFHAbz9iBXw3gCrM",
+  },
 };
 
 export default function RootLayout({
