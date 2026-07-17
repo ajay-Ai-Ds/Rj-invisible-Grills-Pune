@@ -6,7 +6,7 @@ export interface ImageAsset {
 export const imageAssets = {
   // Hero Carousel Slides
   heroSlideInvisibleGrill: {
-    url: "/images/hero/invisible-grill.png",
+    url: "/images/hero/invisible-grill.webp",
     alt: "Premium balcony invisible grills installation in Pune providing safety and open views",
   },
   heroSlideSportsNet: {
@@ -54,17 +54,17 @@ export const imageAssets = {
 
   // Before & After Comparisons
   beforeBalcony: {
-    url: "/images/hero/before-balcony.png",
+    url: "/images/hero/before-balcony.webp",
     alt: "Unsecured high-rise balcony structure before invisible safety grill installation",
   },
   afterBalcony: {
-    url: "/images/hero/invisible-grill.png",
+    url: "/images/hero/invisible-grill.webp",
     alt: "Secured balcony featuring tensioned marine-grade SS316 invisible steel wire grills",
   },
 
   // Technical Materials Specification
   materialSSCable: {
-    url: "/images/hero/invisible-grill.png",
+    url: "/images/hero/invisible-grill.webp",
     alt: "Premium SS316 marine-grade stainless steel cables wrapped in protective nylon sheath",
   },
   materialSportsNet: {
@@ -78,11 +78,11 @@ export const imageAssets = {
 
   // Team & Field Technicians
   teamGrillInstall: {
-    url: "/images/hero/team-grill-install.png",
+    url: "/images/hero/team-grill-install.webp",
     alt: "RJ Invisible Grills technician wearing safety harness securing balcony anchors",
   },
   teamCompletedBalcony: {
-    url: "/images/hero/after-balcony.png",
+    url: "/images/hero/invisible-grill.webp",
     alt: "Completed high-tensile balcony invisible grills verification and tension check",
   },
   teamCompletedWindow: {
@@ -104,7 +104,7 @@ export const imageAssets = {
 
   // Projects Cases
   projectHinjewadi: {
-    url: "/images/hero/after-balcony.png",
+    url: "/images/hero/invisible-grill.webp",
     alt: "High-rise balcony invisible grills completed case study in Hinjewadi, Pune",
   },
   projectKothrud: {
@@ -132,7 +132,7 @@ export const imageAssets = {
 
   // Branding and Metadata
   ogImage: {
-    url: "/images/hero/invisible-grill.png",
+    url: "/images/hero/invisible-grill.webp",
     alt: "RJ Invisible Grills Pune - Balcony Invisible Grills & Sports Nets",
   },
   logoIcon: {

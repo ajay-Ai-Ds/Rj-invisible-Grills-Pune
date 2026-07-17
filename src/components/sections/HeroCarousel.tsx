@@ -166,70 +166,46 @@ export default function HeroCarousel() {
       aria-label="RJ Invisible Grills Hero Slider"
       tabIndex={0}
     >
-      {/* Infinite slide strip */}
       <div
         className="flex h-full"
-        style={
-          isMounted
-            ? {
-                width: `${extendedSlides.length * 100}%`,
-                transform: `translateX(${translateX / extendedSlides.length}%)`,
-                transition: isTransitioning
-                  ? `transform ${TRANSITION_DURATION}ms cubic-bezier(0.77, 0, 0.175, 1)`
-                  : "none",
-                willChange: "transform",
-              }
-            : {
-                width: "100%",
-                transform: "none",
-              }
-        }
+        style={{
+          width: `${extendedSlides.length * 100}%`,
+          transform: `translateX(${translateX / extendedSlides.length}%)`,
+          transition: isTransitioning
+            ? `transform ${TRANSITION_DURATION}ms cubic-bezier(0.77, 0, 0.175, 1)`
+            : "none",
+          willChange: "transform",
+        }}
         onTransitionEnd={handleTransitionEnd}
       >
-        {isMounted ? (
-          extendedSlides.map((slide, idx) => (
+        {extendedSlides.map((slide, idx) => (
+          <div
+            key={`${slide.id}-${idx}`}
+            className="relative h-full flex-shrink-0"
+            style={{ width: `${100 / extendedSlides.length}%` }}
+          >
+            {/* Ken Burns effect */}
             <div
-              key={`${slide.id}-${idx}`}
-              className="relative h-full flex-shrink-0"
-              style={{ width: `${100 / extendedSlides.length}%` }}
+              className="relative w-full h-full overflow-hidden"
+              style={{
+                animation:
+                  idx === activeIndex
+                    ? `kenBurns ${AUTOPLAY_INTERVAL + TRANSITION_DURATION}ms ease-out forwards`
+                    : "none",
+              }}
             >
-              {/* Ken Burns effect */}
-              <div
-                className="relative w-full h-full overflow-hidden"
-                style={{
-                  animation:
-                    idx === activeIndex
-                      ? `kenBurns ${AUTOPLAY_INTERVAL + TRANSITION_DURATION}ms ease-out forwards`
-                      : "none",
-                }}
-              >
-                <Image
-                  src={slide.image}
-                  alt={slide.alt}
-                  fill
-                  priority={idx === 1}
-                  sizes="100vw"
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-black/60" />
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="relative w-full h-full flex-shrink-0">
-            <div className="relative w-full h-full overflow-hidden">
               <Image
-                src={slides[0].image}
-                alt={slides[0].alt}
+                src={slide.image}
+                alt={slide.alt}
                 fill
-                priority
+                priority={idx === 1}
                 sizes="100vw"
                 className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-black/60" />
             </div>
           </div>
-        )}
+        ))}
       </div>
 
       {/* Text Content Overlay — always shows real slide content */}
