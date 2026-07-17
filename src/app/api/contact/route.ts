@@ -86,7 +86,7 @@ export async function POST(request: Request) {
           },
           body: JSON.stringify({
             from: "RJ Invisible Grills Website <onboarding@resend.dev>",
-            to: "info.rjinvisiblegrills@gmail.com",
+            to: "rjinvisiblegrills@gmail.com",
             subject: `🔥 New Lead: ${name} (${service})`,
             html: `
               <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff;">
@@ -125,7 +125,7 @@ export async function POST(request: Request) {
           const errorMsg = await response.text();
           console.error("Resend API email transmission error:", errorMsg);
         } else {
-          console.log("Email notification successfully transmitted to info.rjinvisiblegrills@gmail.com");
+          console.log("Email notification successfully transmitted to rjinvisiblegrills@gmail.com");
         }
       } catch (emailErr) {
         console.error("Failed sending email notification:", emailErr);

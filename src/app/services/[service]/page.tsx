@@ -83,7 +83,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       "@type": "LocalBusiness",
       "name": "RJ Invisible Grills",
       "telephone": "+91 80191 13644",
-      "email": "info.rjinvisiblegrills@gmail.com",
+      "email": "rjinvisiblegrills@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Pune",

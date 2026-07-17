@@ -30,7 +30,7 @@ export function generateLocalBusinessSchema(areaName?: string) {
     "name": `RJ Invisible Grills${areaName ? ` - ${areaName}` : ""}`,
     "url": `https://www.rjinvisiblegrills.com${areaName ? `/areas/${areaName.toLowerCase().replace(/\s+/g, "-")}` : ""}`,
     "telephone": "+91 80191 13644",
-    "email": "info.rjinvisiblegrills@gmail.com",
+    "email": "rjinvisiblegrills@gmail.com",
     "image": imageAssets.ogImage.url,
     "priceRange": "₹₹",
     "address": {
@@ -100,7 +100,7 @@ export function generateServiceSchema(serviceName: string, categoryName: string,
       "@type": "LocalBusiness",
       "name": "RJ Invisible Grills",
       "telephone": "+91 80191 13644",
-      "email": "info.rjinvisiblegrills@gmail.com",
+      "email": "rjinvisiblegrills@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Pune",

@@ -82,7 +82,7 @@ export default function RootLayout({
     "name": "RJ Invisible Grills",
     "url": "https://www.rjinvisiblegrills.com",
     "telephone": "+91 80191 13644",
-    "email": "info.rjinvisiblegrills@gmail.com",
+    "email": "rjinvisiblegrills@gmail.com",
     "image": imageAssets.ogImage.url,
     "priceRange": "₹₹",
     "address": {

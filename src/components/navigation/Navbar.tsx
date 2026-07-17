@@ -60,9 +60,9 @@ export default function Navbar() {
               <Phone className="w-3 h-3" />
               <span>+91 80191 13644</span>
             </a>
-            <a href="mailto:info.rjinvisiblegrills@gmail.com" className="hidden sm:flex items-center gap-1.5 hover:text-accent-orange transition-colors">
+            <a href="mailto:rjinvisiblegrills@gmail.com" className="hidden sm:flex items-center gap-1.5 hover:text-accent-orange transition-colors">
               <Mail className="w-3 h-3" />
-              <span>info.rjinvisiblegrills@gmail.com</span>
+              <span>rjinvisiblegrills@gmail.com</span>
             </a>
           </div>
           <div className="flex items-center gap-4 text-[11px] sm:text-xs font-medium">

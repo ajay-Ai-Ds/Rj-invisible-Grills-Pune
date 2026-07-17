@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
               5. Contacting Us
             </h2>
             <p>
-              If you have any questions regarding this Privacy Policy or wish to request the deletion of your submission logs, please contact us at info.rjinvisiblegrills@gmail.com or call +91 80191 13644.
+              If you have any questions regarding this Privacy Policy or wish to request the deletion of your submission logs, please contact us at rjinvisiblegrills@gmail.com or call +91 80191 13644.
             </p>
           </div>
         </div>
