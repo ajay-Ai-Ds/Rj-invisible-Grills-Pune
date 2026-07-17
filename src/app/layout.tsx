@@ -150,19 +150,21 @@ export default function RootLayout({
         />
 
         {/* Google tag (gtag.js) */}
-        <Script
+        <script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-J35RSXQ5F0"
-          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-            gtag('config', 'G-J35RSXQ5F0');
-          `}
-        </Script>
+              gtag('config', 'G-J35RSXQ5F0');
+            `,
+          }}
+        />
 
         {/* Google Tag Manager (GTM) placeholder */}
         <Script id="gtm" strategy="lazyOnload">
