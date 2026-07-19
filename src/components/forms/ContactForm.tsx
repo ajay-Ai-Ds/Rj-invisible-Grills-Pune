@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { motion } from "framer-motion";
-import { Phone, Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
+
+import { Phone, Mail, Send, AlertCircle } from "lucide-react";
 import { trackFormSubmit } from "@/utils/analytics";
 
 // Zod Validation Schema matching Indian format rules
@@ -34,7 +35,8 @@ const servicesList = [
 ];
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
+  const router = useRouter();
 
   const {
     register,
@@ -57,7 +59,7 @@ export default function ContactForm() {
     // Honeypot spam check - silently reject bots without hitting server
     if (data.botfield) {
       console.warn("Spam bot submission blocked via Honeypot.");
-      setStatus("success"); // Confuse the bot into thinking it succeeded
+      router.push("/thank-you"); // Confuse the bot into thinking it succeeded
       return;
     }
 
@@ -80,8 +82,7 @@ export default function ContactForm() {
         // Track successful submission inside dataLayer
         trackFormSubmit(data.service, data.area);
 
-        setStatus("success");
-        reset();
+        router.push("/thank-you");
       } else {
         setStatus("error");
       }
@@ -147,28 +148,7 @@ export default function ContactForm() {
 
           {/* Form Card */}
           <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 shadow-xs border border-slate-200">
-            {status === "success" ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-10 flex flex-col items-center justify-center gap-4"
-              >
-                <div className="p-4 bg-emerald-50 rounded-full text-success-green">
-                  <CheckCircle2 className="w-16 h-16" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800">Booking Request Received!</h3>
-                <p className="text-slate-500 text-sm max-w-md leading-relaxed">
-                  Thank you for reaching out to RJ Invisible Grills. Our team will contact you shortly to schedule your free site measurement and share quotation details.
-                </p>
-                <button
-                  onClick={() => setStatus("idle")}
-                  className="mt-4 bg-primary-700 hover:bg-accent-orange text-white text-xs font-bold px-6 py-3 rounded-full cursor-pointer transition-colors"
-                >
-                  Submit Another Request
-                </button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6" noValidate>
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6" noValidate>
                 {status === "error" && (
                   <div className="p-4 bg-red-50 border border-red-100 text-red-700 rounded-xl text-xs flex items-center gap-3" role="alert">
                     <AlertCircle className="w-5 h-5 shrink-0" />
@@ -331,8 +311,7 @@ export default function ContactForm() {
                     </>
                   )}
                 </button>
-              </form>
-            )}
+            </form>
           </div>
         </div>
       </div>

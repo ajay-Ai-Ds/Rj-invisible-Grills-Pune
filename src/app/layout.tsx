@@ -162,23 +162,10 @@ export default function RootLayout({
               gtag('js', new Date());
 
               gtag('config', 'G-J35RSXQ5F0');
+              gtag('config', 'GT-K52RNPSL');
             `,
           }}
         />
-
-        {/* Google Tag Manager (GTM) placeholder */}
-        <Script id="gtm" strategy="lazyOnload">
-          {`
-            const gtmId = 'GTM-TEMPLATE_ID';
-            if (gtmId && !gtmId.includes('TEMPLATE')) {
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer',gtmId);
-            }
-          `}
-        </Script>
 
         {/* Microsoft Clarity placeholder */}
         <Script id="microsoft-clarity" strategy="lazyOnload">

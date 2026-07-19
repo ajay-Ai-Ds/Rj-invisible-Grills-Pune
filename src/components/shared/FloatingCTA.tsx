@@ -24,7 +24,7 @@ export default function FloatingCTA() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="hidden xl:flex fixed bottom-8 right-8 z-50 flex flex-col gap-3">
+        <div className="hidden xl:flex fixed bottom-8 right-8 z-50 flex-col gap-3">
           {/* Scroll to Top Button */}
           <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

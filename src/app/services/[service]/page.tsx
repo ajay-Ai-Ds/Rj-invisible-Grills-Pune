@@ -101,7 +101,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const breadcrumbLinks = [
     { name: "Home", item: "/" },
     { name: "Services", item: "/services" },
-    { name: serviceDetail.categoryName, item: `/services/#${serviceDetail.category}` },
+    { name: serviceDetail.categoryName, item: `/services/${serviceDetail.category}` },
     { name: serviceDetail.name, item: `/services/${serviceDetail.slug}` },
   ];
 

@@ -15,6 +15,23 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 text-center select-none">
+      {/* Google Ads Conversion Event — fires when user lands on /thank-you */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                'send_to': 'GT-K52RNPSL',
+                'event_category': 'Lead',
+                'event_label': 'Contact Form Submission'
+              });
+              gtag('event', 'conversion', {
+                'send_to': 'GT-K52RNPSL'
+              });
+            }
+          `,
+        }}
+      />
       <div className="max-w-md bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-md flex flex-col items-center gap-6">
         <div className="p-4 bg-emerald-50 text-success-green rounded-full shadow-xs border border-emerald-100/50">
           <CheckCircle2 className="w-12 h-12" />
